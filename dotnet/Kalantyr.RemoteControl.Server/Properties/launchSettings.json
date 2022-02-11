@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Kalantyr.RemoteControl.Server": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "check/version",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Kalantyr.RemoteControl.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Remote control" Height="320" Width="640"
+        WindowStartupLocation="CenterScreen" Background="Black">
+    <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="_tbPowerOff" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100" Opacity="0.5"/>
+        <TextBlock x:Name="_tbError" VerticalAlignment="Bottom" Foreground="Red" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="1">
+            <Button Content="30 сек" Click="OnPowerOff_30sec_Click"/>
+            <Button Content="10 мин" Click="OnPowerOff_10min_Click"/>
+            <Button Content="30 мин" Click="OnPowerOff_30min_Click"/>
+            <Button Content="1 час" Click="OnPowerOff_60min_Click"/>
+            <Button Content="3 часа" Click="OnPowerOff_180min_Click"/>
+            <Button Content="---" Click="OnPowerOff_180min_Click" Visibility="Hidden"/>
+            <Button Content="Отмена" Click="OnCancelPowerOffClick" Foreground="Red"/>
+        </StackPanel>
+    </Grid>
+</Window>
