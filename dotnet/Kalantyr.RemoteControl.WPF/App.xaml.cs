@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Windows;
 using Kalantyr.RemoteControl.WPF.Client;
 using Kalantyr.RemoteControl.WPF.Properties;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,11 @@ namespace Kalantyr.RemoteControl.WPF
                 });
 
             services.AddSingleton<IRemoteControlClient>(sp => new RemoteControlClient(sp.GetService<IHttpClientFactory>()));
+        }
+
+        public static void ShowError(Exception exception)
+        {
+            MessageBox.Show(exception.GetBaseException().Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

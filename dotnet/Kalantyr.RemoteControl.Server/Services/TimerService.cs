@@ -26,7 +26,7 @@ namespace Kalantyr.RemoteControl.Server.Services
             var startInfo = new ProcessStartInfo
             {
                 FileName = "shutdown",
-                Arguments = "/s /f /t 10 /d P",
+                Arguments = "/s /f /t 0",
                 UseShellExecute = true,
                 Verb = "runas"
             };

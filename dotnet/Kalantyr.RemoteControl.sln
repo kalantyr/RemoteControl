@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalantyr.RemoteControl.WPF", "Kalantyr.RemoteControl.WPF\Kalantyr.RemoteControl.WPF.csproj", "{F4DCB647-29D1-4F3F-A699-56E4D9988B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalantyr.RemoteControl.Server", "Kalantyr.RemoteControl.Server\Kalantyr.RemoteControl.Server.csproj", "{2E8E5F07-2647-44A7-ACC0-4AD243A924E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4DCB647-29D1-4F3F-A699-56E4D9988B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DCB647-29D1-4F3F-A699-56E4D9988B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DCB647-29D1-4F3F-A699-56E4D9988B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DCB647-29D1-4F3F-A699-56E4D9988B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E8E5F07-2647-44A7-ACC0-4AD243A924E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E8E5F07-2647-44A7-ACC0-4AD243A924E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E8E5F07-2647-44A7-ACC0-4AD243A924E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E8E5F07-2647-44A7-ACC0-4AD243A924E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEB32127-71DD-4ADA-9F03-E46CFFECFBC1}
+	EndGlobalSection
+EndGlobal

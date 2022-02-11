@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Kalantyr.RemoteControl.WPF.Client;
+using Kalantyr.RemoteControl.WPF.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kalantyr.RemoteControl.WPF
@@ -77,11 +78,6 @@ namespace Kalantyr.RemoteControl.WPF
             return s.TrimStart('0');
         }
 
-        private void OnPowerOff_30sec_Click(object sender, RoutedEventArgs e)
-        {
-            PowerOff(TimeSpan.FromSeconds(30));
-        }
-
         private void OnPowerOff_10min_Click(object sender, RoutedEventArgs e)
         {
             PowerOff(TimeSpan.FromMinutes(10));
@@ -100,6 +96,13 @@ namespace Kalantyr.RemoteControl.WPF
         private void OnPowerOff_180min_Click(object sender, RoutedEventArgs e)
         {
             PowerOff(TimeSpan.FromHours(3));
+        }
+
+        private void OnPowerOff_Custom_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new TimeSpanWindow { Owner = this };
+            if (window.ShowDialog() == true)
+                PowerOff(window.TimeSpan);
         }
 
         private void OnCancelPowerOffClick(object sender, RoutedEventArgs e)
