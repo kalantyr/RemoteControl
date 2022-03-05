@@ -6,4 +6,6 @@ interface IRemoteControlClient {
     fun getPowerOff(): Duration?
 
     fun cancelPowerOff()
+
+    fun schedulePowerOff(remain: Duration)
 }

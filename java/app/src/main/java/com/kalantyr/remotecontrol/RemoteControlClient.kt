@@ -6,10 +6,10 @@ import java.net.URL
 import kotlin.time.Duration
 
 class RemoteControlClient: IRemoteControlClient {
-    private var _host: String = "http://10.0.2.2:55555"
+    var host: String = ""
 
     override fun getPowerOff(): Duration? {
-        val url = URL("$_host/power/off")
+        val url = URL("$host/power/off")
         var s = url.readText();
         if (s.isEmpty())
             return null;
@@ -28,10 +28,9 @@ class RemoteControlClient: IRemoteControlClient {
     }
 
     override fun cancelPowerOff() {
-        val url = URL("$_host/power/off")
+        val url = URL("$host/power/off")
         val connection = url.openConnection() as HttpURLConnection
         with(connection) {
-            //connection.setRequestProperty("Accept", "application/json")
             connection.setRequestProperty("Content-Type", "application/json")
             requestMethod = "POST"
 
@@ -42,5 +41,34 @@ class RemoteControlClient: IRemoteControlClient {
             if (responseCode != 200)
                 throw Exception(responseMessage)
         }
+    }
+
+    override fun schedulePowerOff(remain: Duration) {
+        val url = URL("$host/power/off")
+        val connection = url.openConnection() as HttpURLConnection
+        with(connection) {
+            connection.setRequestProperty("Content-Type", "application/json")
+            requestMethod = "POST"
+
+            var hh = remain.inWholeHours
+            var mm = remain.inWholeMinutes - remain.inWholeHours * 60
+            var ss = remain.inWholeSeconds - remain.inWholeMinutes * 60
+            var body = "${toStr(hh)}:${toStr(mm)}:${toStr(ss)}"
+            body = "\"$body\""
+
+            val wr = OutputStreamWriter(outputStream);
+            wr.write(body);
+            wr.flush();
+
+            if (responseCode != 200)
+                throw Exception(responseMessage)
+        }
+    }
+
+    private fun toStr(value: Long): String {
+        if (value < 9)
+            return "0$value"
+        else
+            return "" + value
     }
 }
